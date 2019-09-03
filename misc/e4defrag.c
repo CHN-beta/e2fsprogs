@@ -210,7 +210,7 @@ static int get_mount_point(const char *devname, char *mount_point,
 							int dir_path_len)
 {
 	/* Refer to /etc/mtab */
-	const char	*mtab = MOUNTED;
+	const char	*mtab = "/proc/mounts";
 	FILE		*fp = NULL;
 	struct mntent	*mnt = NULL;
 	struct stat64	sb;
@@ -265,7 +265,7 @@ static int is_ext4(const char *file, char *devname)
 	FILE	*fp = NULL;
 	char	*mnt_type = NULL;
 	/* Refer to /etc/mtab */
-	const char	*mtab = MOUNTED;
+	const char	*mtab = "/proc/mounts";
 	char	file_path[PATH_MAX + 1];
 	struct mntent	*mnt = NULL;
 	struct statfs64	fsbuf;
